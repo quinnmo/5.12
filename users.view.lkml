@@ -1,5 +1,5 @@
 view: users {
-  sql_table_name: demo_db.users ;;
+  sql_table_name: demo_db_dev_mode_edit.users ;;
 
   dimension: id {
     primary_key: yes
