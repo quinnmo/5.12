@@ -23,6 +23,6 @@ view: test {
 
   measure: zoo {
     type: number
-    sql: CASE WHEN ${foo} > 0 THEN ${boo} / ${foo} END ;;
+    sql: CASE WHEN ${boo} > 0 THEN ${foo} / ${boo} END ;;
   }
 }
