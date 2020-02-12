@@ -14,29 +14,29 @@ explore: events {
 }
 
 explore: inventory_items {
-  join: products {
+  join: products_quinn {
     type: left_outer
-    sql_on: ${inventory_items.product_id} = ${products.id} ;;
+    sql_on: ${inventory_items.product_id} = ${products_quinn.id} ;;
     relationship: many_to_one
   }
 }
 
-explore: order_items {
+explore: order_items_quinn {
   join: inventory_items {
     type: left_outer
-    sql_on: ${order_items.inventory_item_id} = ${inventory_items.id} ;;
+    sql_on: ${order_items_quinn.inventory_item_id} = ${inventory_items.id} ;;
     relationship: many_to_one
   }
 
   join: orders {
     type: left_outer
-    sql_on: ${order_items.order_id} = ${orders.id} ;;
+    sql_on: ${order_items_quinn.order_id} = ${orders.id} ;;
     relationship: many_to_one
   }
 
-  join: products {
+  join: products_quinn {
     type: left_outer
-    sql_on: ${inventory_items.product_id} = ${products.id} ;;
+    sql_on: ${inventory_items.product_id} = ${products_quinn.id} ;;
     relationship: many_to_one
   }
 
@@ -55,7 +55,7 @@ explore: orders {
   }
 }
 
-explore: products {}
+explore: products_quinn {}
 
 explore: schema_migrations {}
 
