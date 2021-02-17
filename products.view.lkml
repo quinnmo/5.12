@@ -1,4 +1,4 @@
-view: products {
+view: products_quinn {
   sql_table_name: demo_db.products ;;
 
   dimension: id {
@@ -33,8 +33,9 @@ view: products {
   }
 
   dimension: retail_price {
-    type: number
-    sql: ${TABLE}.retail_price ;;
+    type: string
+    sql: -1*(${TABLE}.retail_price) ;;
+    value_format: "0"
   }
 
   dimension: sku {
