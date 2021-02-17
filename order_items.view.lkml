@@ -42,4 +42,20 @@ view: order_items {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
   }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
+  }
+
+  measure: test {
+    type: number
+    sql: case when ${orders.status} = 'cancelled' then ${total_sale_price}
+    else 1
+    end;;
+    html: {% if orders.status._value == 'cancelled' %} {{ value }}
+    {% else %}
+    0
+    {% endif %};;
+  }
 }

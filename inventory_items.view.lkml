@@ -7,7 +7,9 @@ view: inventory_items {
     sql: ${TABLE}.id ;;
   }
 
-
+ filter: date {
+   type: date_time
+ }
 
   dimension: cost {
     type: number

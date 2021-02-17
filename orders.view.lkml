@@ -26,6 +26,13 @@ view: orders {
     sql: ${TABLE}.status ;;
   }
 
+  dimension: test {
+    type: number
+    alias: [orders.user_id]
+    sql: 1 ;;
+  }
+
+
   dimension: user_id {
     type: number
     # hidden: yes

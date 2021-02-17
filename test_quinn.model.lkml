@@ -16,8 +16,18 @@ explore: events {
 explore: inventory_items {
   join: products {
     type: left_outer
-    sql_on: ${inventory_items.product_id} = ${products.id} ;;
+    sql_on: ${inventory_items.product_id} = ${products.id}
+    AND {% condition inventory_items.date %} ${inventory_items.created_time} {% endcondition %};;
     relationship: many_to_one
+  }
+}
+
+explore: liquid_in_join{
+  view_name: products
+  join: inventory_items {
+    type: inner
+    sql_on: ${inventory_items.product_id} = ${products.id}
+    AND {% condition inventory_items.date %} ${inventory_items.created_time} {% endcondition %};;
   }
 }
 
